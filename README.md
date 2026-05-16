@@ -89,17 +89,17 @@ Kullanıcının ürünü sepete eklediği işlem.
 
 ---
 
-## Sepet Ekranı
-Sepete eklenen ürünlerin ve toplam tutarın görüntülendiği ekran.
-
-<img src="screenshots/cart_v2.png" width="300">
-
----
-
 ## Boş Sepet Durumu
 Sepette ürün bulunmadığında görüntülenen ekran.
 
 <img src="screenshots/emptycart_v2.png" width="300">
+
+---
+
+## Sepet Ekranı
+Sepete eklenen ürünlerin ve toplam tutarın görüntülendiği ekran.
+
+<img src="screenshots/cart_v2.png" width="300">
 
 ---
 
