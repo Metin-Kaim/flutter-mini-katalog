@@ -1,6 +1,6 @@
 # Mini Katalog Uygulaması
 
-Flutter ile geliştirilmiş basit katalog uygulaması.
+Flutter ile geliştirilmiş modern görünümlü mini katalog ve alışveriş uygulaması.
 
 ## Özellikler
 
@@ -9,20 +9,48 @@ Flutter ile geliştirilmiş basit katalog uygulaması.
 - Ürün detay ekranı
 - JSON veri kullanımı
 - Navigator ile sayfa geçişi
-- Basit sepet simülasyonu
+- Ürün arama sistemi
+- Gerçek ürün görselleri
+- Sepet sistemi
+- Sepetten ürün silme
+- Toplam fiyat hesaplama
+- Sipariş onaylama
+- Modern UI tasarımı
 
 ## Kullanılan Teknolojiler
 
 - Flutter
 - Dart
 
+## Proje Yapısı
+
+```text
+lib/
+├── models/
+├── screens/
+├── services/
+├── widgets/
+└── data/
+```
+
+## Ekran Görüntüleri
+
 ## Ekran Görüntüleri
 
 ### Ana Sayfa
-![Home](screenshots/home.png)
+<img src="screenshots/home.png" width="300">
 
-### Detay Sayfası
-![Detail](screenshots/detail.png)
+### Ürün Detay Ekranı
+<img src="screenshots/detail.png" width="300">
+
+### Ürünü Sepete Ekleme
+<img src="screenshots/addcart.png" width="300">
+
+### Sepet Ekranı
+<img src="screenshots/cart.png" width="300">
+
+### Sipariş Onaylama
+<img src="screenshots/submitcart.png" width="300">
 
 ## Çalıştırma
 
@@ -30,3 +58,7 @@ Flutter ile geliştirilmiş basit katalog uygulaması.
 flutter pub get
 flutter run
 ```
+
+## Geliştirici
+
+Metin
