@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/product.dart';
+
 import '../data/cart_data.dart';
+import '../models/product.dart';
 
 class DetailScreen extends StatelessWidget {
   final Product product;
@@ -11,70 +12,82 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      appBar: AppBar(title: Text(product.name)),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 250,
-              width: double.infinity,
-              padding: const EdgeInsets.all(10),
-              child: Image.asset(product.image, fit: BoxFit.contain),
-            ),
-            const SizedBox(height: 20),
-
-            Text(
-              product.name,
-              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-            ),
-
-            const SizedBox(height: 10),
-
-            Text(
-              '${product.price} TL',
-              style: const TextStyle(
-                fontSize: 22,
-                color: Colors.deepPurple,
-                fontWeight: FontWeight.bold,
+      appBar: AppBar(title: Text(product.name), elevation: 0),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 300,
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Image.network(product.image, fit: BoxFit.contain),
               ),
-            ),
- 
-            const SizedBox(height: 20),
 
-            Text(product.description, style: const TextStyle(fontSize: 18)),
+              const SizedBox(height: 20),
 
-            const Spacer(),
+              Text(
+                product.name,
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
 
-            SizedBox(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepPurple,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
+              const SizedBox(height: 10),
+
+              Text(
+                '\$${product.price.toStringAsFixed(0)}',
+                style: const TextStyle(
+                  fontSize: 24,
+                  color: Colors.deepPurple,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              Text(
+                product.description,
+                style: const TextStyle(fontSize: 18, height: 1.5),
+              ),
+
+              const SizedBox(height: 30),
+
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+                child: ElevatedButton(
+                  onPressed: () {
+                    CartData.cartItems.add(product);
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        duration: Duration(seconds: 1),
+                        content: Text('${product.name} added to cart')),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                  ),
+                  child: const Text(
+                    'Add to Cart',
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
-                onPressed: () {
-                  CartData.cartItems.add(product);
-                  
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('${product.name} sepete eklendi'),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
-                },
-                child: const Text(
-                  'Sepete Ekle',
-                  style: TextStyle(fontSize: 18),
-                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

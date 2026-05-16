@@ -10,8 +10,8 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  int getTotalPrice() {
-    int total = 0;
+  double getTotalPrice() {
+    double total = 0;
 
     for (var product in CartData.cartItems) {
       total += product.price;
@@ -29,7 +29,8 @@ class _CartScreenState extends State<CartScreen> {
   void confirmOrder() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('Sipariş başarıyla oluşturuldu'),
+        duration: Duration(seconds: 1),
+        content: Text('Order placed successfully'),
       ),
     );
 
@@ -43,18 +44,13 @@ class _CartScreenState extends State<CartScreen> {
     final cartItems = CartData.cartItems;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sepetim'),
-      ),
+      appBar: AppBar(title: const Text('My Cart')),
       backgroundColor: Colors.grey[100],
       body: cartItems.isEmpty
           ? const Center(
               child: Text(
-                'Sepetiniz boş',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+                'Your cart is empty',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
             )
           : Column(
@@ -74,26 +70,23 @@ class _CartScreenState extends State<CartScreen> {
                         ),
                         child: ListTile(
                           contentPadding: const EdgeInsets.all(10),
-                          leading: Image.asset(
+                          leading: Image.network(
                             product.image,
                             width: 60,
                             fit: BoxFit.contain,
                           ),
                           title: Text(
                             product.name,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          subtitle: Text('${product.price} TL'),
+                          subtitle: Text(
+                            '\$${product.price.toStringAsFixed(0)}',
+                          ),
                           trailing: IconButton(
                             onPressed: () {
                               removeItem(index);
                             },
-                            icon: const Icon(
-                              Icons.delete,
-                              color: Colors.red,
-                            ),
+                            icon: const Icon(Icons.delete, color: Colors.red),
                           ),
                         ),
                       );
@@ -103,24 +96,21 @@ class _CartScreenState extends State<CartScreen> {
 
                 Container(
                   padding: const EdgeInsets.all(20),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                  ),
+                  decoration: const BoxDecoration(color: Colors.white),
                   child: Column(
                     children: [
                       Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
-                            'Toplam',
+                            'Total',
                             style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            '${getTotalPrice()} TL',
+                            '\$${getTotalPrice().toStringAsFixed(0)}',
                             style: const TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
@@ -138,16 +128,14 @@ class _CartScreenState extends State<CartScreen> {
                         child: ElevatedButton(
                           onPressed: confirmOrder,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:
-                                Colors.deepPurple,
+                            backgroundColor: Colors.deepPurple,
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(14),
+                              borderRadius: BorderRadius.circular(14),
                             ),
                           ),
                           child: const Text(
-                            'Siparişi Onayla',
+                            'Confirm Order',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),

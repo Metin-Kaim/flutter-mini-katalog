@@ -73,13 +73,17 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Container(
                   margin: const EdgeInsets.all(12),
-                  height: 180,
+                  padding: const EdgeInsets.all(10),
+                  height: 100,
                   width: double.infinity,
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                     image: const DecorationImage(
-                      image: AssetImage('assets/images/banner.jpg'),
-                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        'https://wantapi.com/assets/banner.png',
+                      ),
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -88,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: TextField(
                     onChanged: searchProduct,
                     decoration: InputDecoration(
-                      hintText: 'Ürün Ara...',
+                      hintText: 'Search products...',
                       prefixIcon: const Icon(Icons.search),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -133,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Expanded(
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
-                                    child: Image.asset(
+                                    child: Image.network(
                                       product.image,
                                       width: double.infinity,
                                       fit: BoxFit.contain,
@@ -143,6 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const SizedBox(height: 10),
                                 Text(
                                   product.name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
@@ -150,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 const SizedBox(height: 5),
                                 Text(
-                                  '${product.price} TL',
+                                  '\$${product.price.toStringAsFixed(0)}',
                                   style: const TextStyle(
                                     fontSize: 16,
                                     color: Colors.deepPurple,

@@ -1,16 +1,27 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
 import '../models/product.dart';
 
 class ProductService {
   static Future<List<Product>> loadProducts() async {
-    final String jsonString =
-        await rootBundle.loadString('assets/data/products.json');
+    try {
+      final response = await http.get(
+        Uri.parse('https://wantapi.com/products.php'),
+      );
 
-    final List<dynamic> jsonData = json.decode(jsonString);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> decodedData = json.decode(response.body);
 
-    return jsonData.map((item) => Product.fromJson(item)).toList();
+        final List<dynamic> jsonData = decodedData['data'];
+
+        return jsonData.map((item) => Product.fromJson(item)).toList();
+      } else {
+        throw Exception('API hatası');
+      }
+    } catch (e) {
+      return [];
+    }
   }
 }
