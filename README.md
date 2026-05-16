@@ -33,25 +33,6 @@ lib/
 └── data/
 ```
 
-## Ekran Görüntüleri
-
-## Ekran Görüntüleri
-
-### Ana Sayfa
-<img src="screenshots/home.png" width="300">
-
-### Ürün Detay Ekranı
-<img src="screenshots/detail.png" width="300">
-
-### Ürünü Sepete Ekleme
-<img src="screenshots/addcart.png" width="300">
-
-### Sepet Ekranı
-<img src="screenshots/cart.png" width="300">
-
-### Sipariş Onaylama
-<img src="screenshots/submitcart.png" width="300">
-
 ## Çalıştırma
 
 ```bash
