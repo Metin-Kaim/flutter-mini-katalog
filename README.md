@@ -35,13 +35,11 @@ lib/
 
 ## Ekran Görüntüleri
 
-## Ekran Görüntüleri
-
 ### Ana Sayfa
-<img src="screenshots/home.png" width="300">
+<img src="screenshots/home-new.png" width="300">
 
 ### Ürün Detay Ekranı
-<img src="screenshots/detail.png" width="300">
+<img src="screenshots/detail-new.png" width="300">
 
 ### Ürünü Sepete Ekleme
 <img src="screenshots/addcart.png" width="300">
@@ -61,4 +59,4 @@ flutter run
 
 ## Geliştirici
 
-Metin
+Metin Kaim
