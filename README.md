@@ -110,6 +110,13 @@ Siparişin başarıyla tamamlandığını gösteren bildirim ekranı.
 
 ---
 
+## Flutter Sürümü
+
+Flutter 3.41.9 (Stable Channel)
+Dart 3.11.5
+
+---
+
 # Kurulum
 
 ```bash
