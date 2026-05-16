@@ -16,11 +16,11 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              product.image,
+            Container(
               height: 250,
               width: double.infinity,
-              fit: BoxFit.cover,
+              padding: const EdgeInsets.all(10),
+              child: Image.asset(product.image, fit: BoxFit.contain),
             ),
             const SizedBox(height: 20),
 

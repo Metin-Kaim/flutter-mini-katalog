@@ -32,14 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Mini Katalog'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Mini Katalog'), centerTitle: true),
       body: isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
+          ? const Center(child: CircularProgressIndicator())
           : GridView.builder(
               padding: const EdgeInsets.all(12),
               itemCount: products.length,
@@ -57,9 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailScreen(
-                          product: product,
-                        ),
+                        builder: (context) => DetailScreen(product: product),
                       ),
                     );
                   },
@@ -71,10 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(
-                            child: Image.network(
+                            child: Image.asset(
                               product.image,
                               width: double.infinity,
-                              fit: BoxFit.cover,
+                              fit: BoxFit.contain,
                             ),
                           ),
                           const SizedBox(height: 10),

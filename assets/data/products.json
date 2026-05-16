@@ -3,28 +3,28 @@
     "id": 1,
     "name": "iPhone 15",
     "price": 79999,
-    "image": "https://picsum.photos/200/300?1",
+    "image": "assets/images/iphone15.jpg",
     "description": "Apple iPhone 15 akıllı telefon modeli."
   },
   {
     "id": 2,
     "name": "MacBook Air",
     "price": 45999,
-    "image": "https://picsum.photos/200/300?2",
+    "image": "assets/images/macbook.jpg",
     "description": "Apple MacBook Air M2 işlemcili laptop."
   },
   {
     "id": 3,
     "name": "AirPods Pro",
     "price": 8999,
-    "image": "https://picsum.photos/200/300?3",
+    "image": "assets/images/airpods.jpg",
     "description": "Apple kablosuz kulaklık modeli."
   },
   {
     "id": 4,
     "name": "iPad Air",
     "price": 23999,
-    "image": "https://picsum.photos/200/300?4",
+    "image": "assets/images/ipad.jpg",
     "description": "Apple iPad Air tablet cihazı."
   }
 ]
