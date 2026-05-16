@@ -16,6 +16,14 @@ Flutter ile geliştirilmiş basit katalog uygulaması.
 - Flutter
 - Dart
 
+## Ekran Görüntüleri
+
+### Ana Sayfa
+![Home](screenshots/home.png)
+
+### Detay Sayfası
+![Detail](screenshots/detail.png)
+
 ## Çalıştırma
 
 ```bash
