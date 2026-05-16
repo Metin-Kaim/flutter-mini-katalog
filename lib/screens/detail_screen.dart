@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../models/product.dart';
+import '../data/cart_data.dart';
 
 class DetailScreen extends StatelessWidget {
   final Product product;
@@ -10,6 +10,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(title: Text(product.name)),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -35,11 +36,11 @@ class DetailScreen extends StatelessWidget {
               '${product.price} TL',
               style: const TextStyle(
                 fontSize: 22,
-                color: Colors.blue,
+                color: Colors.deepPurple,
                 fontWeight: FontWeight.bold,
               ),
             ),
-
+ 
             const SizedBox(height: 20),
 
             Text(product.description, style: const TextStyle(fontSize: 18)),
@@ -50,7 +51,16 @@ class DetailScreen extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurple,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                ),
                 onPressed: () {
+                  CartData.cartItems.add(product);
+                  
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text('${product.name} sepete eklendi'),
